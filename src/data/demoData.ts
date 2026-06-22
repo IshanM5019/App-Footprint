@@ -1,0 +1,235 @@
+// ============================================================
+// Footprints — Demo Data (used when Supabase is not configured)
+// ============================================================
+
+import type {
+  Place,
+  LocationDraft,
+  ConversationWithContext,
+  Message,
+} from "@/types/database";
+
+// ── Demo Places (for the map) ────────────────────────────────
+
+export const demoPlaces: Place[] = [
+  {
+    id: "p1",
+    name: "Lodhi Garden",
+    address: "Lodhi Road, Lodhi Estate",
+    lat: 28.5933,
+    lng: 77.2198,
+    visitor: "Alex Chen",
+    visitorAvatar: "AC",
+    visitDate: "Jun 10, 2026",
+    description: "A beautiful city park with historic tombs from the Lodi dynasty, landscaped gardens, and a peaceful atmosphere.",
+    photoColor: "from-emerald-400 to-teal-600",
+    category: "park",
+    isPublic: true,
+    userId: "demo-alex",
+  },
+  {
+    id: "p2",
+    name: "Blue Tokai Coffee Roasters, Connaught Place",
+    address: "M-Block, Connaught Place",
+    lat: 28.6304,
+    lng: 77.2177,
+    visitor: "Maya Park",
+    visitorAvatar: "MP",
+    visitDate: "Jun 11, 2026",
+    description: "Modern specialty coffee shop with locally roasted Indian beans, great sourdough toasts, and a cozy workspace vibe.",
+    photoColor: "from-sky-400 to-indigo-600",
+    category: "cafe",
+    isPublic: true,
+    userId: "demo-maya",
+  },
+  {
+    id: "p3",
+    name: "Karim's",
+    address: "Gali Kababian, Jama Masjid",
+    lat: 28.6508,
+    lng: 77.2335,
+    visitor: "Ravi Patel",
+    visitorAvatar: "RP",
+    visitDate: "Jun 9, 2026",
+    description: "Legendary Mughlai restaurant serving famous mutton korma, seekh kebabs, and tandoori rotis since 1913.",
+    photoColor: "from-orange-400 to-red-500",
+    category: "restaurant",
+    isPublic: true,
+    userId: "demo-ravi",
+  },
+  {
+    id: "p4",
+    name: "National Gallery of Modern Art",
+    address: "Jaipur House, Sher Shah Road",
+    lat: 28.6096,
+    lng: 77.2344,
+    visitor: "Sophie Laurent",
+    visitorAvatar: "SL",
+    visitDate: "Jun 8, 2026",
+    description: "Lush art museum showcasing historic paintings by Raja Ravi Varma, Amrita Sher-Gil, and modern Indian artists.",
+    photoColor: "from-sky-400 to-blue-600",
+    category: "museum",
+    isPublic: true,
+    userId: "demo-sophie",
+  },
+  {
+    id: "p5",
+    name: "The Piano Man Jazz Club",
+    address: "Safdarjung Enclave Market",
+    lat: 28.5638,
+    lng: 77.2001,
+    visitor: "James Wilson",
+    visitorAvatar: "JW",
+    visitDate: "Jun 11, 2026",
+    description: "A cozy multi-level jazz bar with live musical performances, woodfired pizzas, and classic cocktail menus.",
+    photoColor: "from-amber-400 to-orange-600",
+    category: "bar",
+    isPublic: true,
+    userId: "demo-james",
+  },
+  {
+    id: "p6",
+    name: "India Gate",
+    address: "Rajpath, Central Secretariat",
+    lat: 28.6129,
+    lng: 77.2295,
+    visitor: "Yuki Tanaka",
+    visitorAvatar: "YT",
+    visitDate: "Jun 7, 2026",
+    description: "An iconic triumphal arch war memorial, popular for evening walks, street food vendors, and illuminated gardens.",
+    photoColor: "from-red-500 to-rose-600",
+    category: "landmark",
+    isPublic: true,
+    userId: "demo-yuki",
+  },
+  {
+    id: "p7",
+    name: "Humayun's Tomb",
+    address: "Nizamuddin East",
+    lat: 28.5933,
+    lng: 77.2507,
+    visitor: "Alex Chen",
+    visitorAvatar: "AC",
+    visitDate: "Jun 12, 2026",
+    description: "Stunning 16th-century Mughal mausoleum with symmetrical charbagh gardens and red sandstone architecture.",
+    photoColor: "from-green-500 to-emerald-700",
+    category: "landmark",
+    isPublic: true,
+    userId: "demo-alex",
+  },
+  {
+    id: "p8",
+    name: "Olive Bar & Kitchen",
+    address: "One Style Mile, Mehrauli",
+    lat: 28.5256,
+    lng: 77.1844,
+    visitor: "Maya Park",
+    visitorAvatar: "MP",
+    visitDate: "Jun 12, 2026",
+    description: "Beautiful Mediterranean style alfresco dining set under a huge banyan tree near the Qutub Minar.",
+    photoColor: "from-yellow-400 to-amber-600",
+    category: "restaurant",
+    isPublic: false,
+    userId: "demo-maya",
+  },
+];
+
+// ── Demo Drafts ──────────────────────────────────────────────
+
+export const demoDrafts: LocationDraft[] = [
+  { id: "d1", user_id: "demo-user", venue_name: "Glen's Bakehouse", address: "Toit Road, Indiranagar, Bengaluru, Karnataka", category: "cafe", latitude: 12.9784, longitude: 77.6416, visited_at: new Date(Date.now() - 3 * 3600000).toISOString(), status: "pending", created_at: new Date().toISOString() },
+  { id: "d2", user_id: "demo-user", venue_name: "Cubbon Park", address: "Kasturba Road, Bengaluru, Karnataka", category: "park", latitude: 12.9779, longitude: 77.5952, visited_at: new Date(Date.now() - 1 * 3600000).toISOString(), status: "pending", created_at: new Date().toISOString() },
+  { id: "d3", user_id: "demo-user", venue_name: "Bangalore Palace", address: "Vasanth Nagar, Bengaluru, Karnataka", category: "landmark", latitude: 12.9982, longitude: 77.5920, visited_at: new Date(Date.now() - 24 * 3600000).toISOString(), status: "pending", created_at: new Date().toISOString() },
+  { id: "d4", user_id: "demo-user", venue_name: "Toit Beer Co", address: "Indiranagar, Bengaluru, Karnataka", category: "restaurant", latitude: 12.9791, longitude: 77.6407, visited_at: new Date(Date.now() - 30 * 3600000).toISOString(), status: "pending", created_at: new Date().toISOString() },
+  { id: "d5", user_id: "demo-user", venue_name: "Vidhana Soudha", address: "Ambedkar Veedhi, Bengaluru, Karnataka", category: "landmark", latitude: 12.9796, longitude: 77.5906, visited_at: new Date(Date.now() - 34 * 3600000).toISOString(), status: "pending", created_at: new Date().toISOString() },
+  { id: "d6", user_id: "demo-user", venue_name: "Visvesvaraya Industrial Museum", address: "Kasturba Road, Bengaluru, Karnataka", category: "museum", latitude: 12.9754, longitude: 77.5963, visited_at: new Date(Date.now() - 48 * 3600000).toISOString(), status: "pending", created_at: new Date().toISOString() },
+  { id: "d7", user_id: "demo-user", venue_name: "Truffles", address: "Koramangala 5th Block, Bengaluru, Karnataka", category: "restaurant", latitude: 12.9341, longitude: 77.6134, visited_at: new Date(Date.now() - 51 * 3600000).toISOString(), status: "pending", created_at: new Date().toISOString() },
+  { id: "d8", user_id: "demo-user", venue_name: "Third Wave Coffee", address: "Sector 7, HSR Layout, Bengaluru, Karnataka", category: "cafe", latitude: 12.9103, longitude: 77.6415, visited_at: new Date(Date.now() - 72 * 3600000).toISOString(), status: "pending", created_at: new Date().toISOString() },
+];
+
+// ── Demo Conversations ───────────────────────────────────────
+
+export const demoConversations: ConversationWithContext[] = [
+  {
+    id: "c1",
+    footprint_id: "p1",
+    created_at: new Date().toISOString(),
+    footprint: { id: "p1", venue_name: "Lodhi Garden", address: "Lodhi Road, Lodhi Estate", category: "park", latitude: 28.5933, longitude: 77.2198, photo_urls: [] },
+    otherUser: { id: "demo-alex", username: "alexchen", full_name: "Alex Chen", avatar_url: null },
+    lastMessage: { text_content: "I'll send you some photos from my visit", created_at: new Date(Date.now() - 2 * 60000).toISOString(), sender_id: "demo-alex" },
+    unreadCount: 2,
+  },
+  {
+    id: "c2",
+    footprint_id: "p2",
+    created_at: new Date().toISOString(),
+    footprint: { id: "p2", venue_name: "Blue Tokai Coffee Roasters, Connaught Place", address: "M-Block, Connaught Place", category: "cafe", latitude: 28.6304, longitude: 77.2177, photo_urls: [] },
+    otherUser: { id: "demo-maya", username: "mayapark", full_name: "Maya Park", avatar_url: null },
+    lastMessage: { text_content: "Their cold brew is a must-try", created_at: new Date(Date.now() - 3600000).toISOString(), sender_id: "demo-maya" },
+    unreadCount: 0,
+  },
+  {
+    id: "c3",
+    footprint_id: "p4",
+    created_at: new Date().toISOString(),
+    footprint: { id: "p4", venue_name: "National Gallery of Modern Art", address: "Jaipur House, Sher Shah Road", category: "museum", latitude: 28.6096, longitude: 77.2344, photo_urls: [] },
+    otherUser: { id: "demo-sophie", username: "sophielaurent", full_name: "Sophie Laurent", avatar_url: null },
+    lastMessage: { text_content: "It's very peaceful, no long queues", created_at: new Date(Date.now() - 3 * 3600000).toISOString(), sender_id: "demo-sophie" },
+    unreadCount: 1,
+  },
+  {
+    id: "c4",
+    footprint_id: "p5",
+    created_at: new Date().toISOString(),
+    footprint: { id: "p5", venue_name: "The Piano Man Jazz Club", address: "Safdarjung Enclave Market", category: "bar", latitude: 28.5638, longitude: 77.2001, photo_urls: [] },
+    otherUser: { id: "demo-james", username: "jameswilson", full_name: "James Wilson", avatar_url: null },
+    lastMessage: { text_content: "Try to book a table on the balcony section", created_at: new Date(Date.now() - 24 * 3600000).toISOString(), sender_id: "demo-james" },
+    unreadCount: 0,
+  },
+  {
+    id: "c5",
+    footprint_id: "p3",
+    created_at: new Date().toISOString(),
+    footprint: { id: "p3", venue_name: "Karim's", address: "Gali Kababian, Jama Masjid", category: "restaurant", latitude: 28.6508, longitude: 77.2335, photo_urls: [] },
+    otherUser: { id: "demo-ravi", username: "ravipatel", full_name: "Ravi Patel", avatar_url: null },
+    lastMessage: { text_content: "The seekh kebabs are legendary 🍢", created_at: new Date(Date.now() - 48 * 3600000).toISOString(), sender_id: "demo-ravi" },
+    unreadCount: 0,
+  },
+];
+
+// ── Demo Messages (per conversation) ─────────────────────────
+
+const now = Date.now();
+
+export const demoMessages: Record<string, Message[]> = {
+  c1: [
+    { id: "m1", conversation_id: "c1", sender_id: "demo-alex", text_content: "Hey! I saw you pinned Lodhi Garden. I was there last week!", created_at: new Date(now - 6 * 60000).toISOString() },
+    { id: "m2", conversation_id: "c1", sender_id: "demo-user", text_content: "Yes! It was absolutely stunning. Did you see the tomb section?", created_at: new Date(now - 5 * 60000).toISOString() },
+    { id: "m3", conversation_id: "c1", sender_id: "demo-alex", text_content: "Of course! The lake is my favorite. Best time to go is early morning around 7am.", created_at: new Date(now - 4 * 60000).toISOString() },
+    { id: "m4", conversation_id: "c1", sender_id: "demo-user", text_content: "Good tip! I went around noon and it was pretty crowded.", created_at: new Date(now - 3 * 60000).toISOString() },
+    { id: "m5", conversation_id: "c1", sender_id: "demo-alex", text_content: "The gardens were incredible!", created_at: new Date(now - 2 * 60000).toISOString() },
+    { id: "m6", conversation_id: "c1", sender_id: "demo-alex", text_content: "I'll send you some photos from my visit", created_at: new Date(now - 2 * 60000).toISOString() },
+  ],
+  c2: [
+    { id: "m7", conversation_id: "c2", sender_id: "demo-user", text_content: "Maya! Is the Blue Tokai in Connaught Place worth the hype?", created_at: new Date(now - 120 * 60000).toISOString() },
+    { id: "m8", conversation_id: "c2", sender_id: "demo-maya", text_content: "Absolutely. It's one of the best specialty cafes.", created_at: new Date(now - 115 * 60000).toISOString() },
+    { id: "m9", conversation_id: "c2", sender_id: "demo-maya", text_content: "Their cold brew is a must-try", created_at: new Date(now - 114 * 60000).toISOString() },
+  ],
+  c3: [
+    { id: "m10", conversation_id: "c3", sender_id: "demo-user", text_content: "Sophie, I'm thinking of going to the National Gallery of Modern Art tomorrow. Any tips?", created_at: new Date(now - 300 * 60000).toISOString() },
+    { id: "m11", conversation_id: "c3", sender_id: "demo-sophie", text_content: "Oh you HAVE to go! It's a very peaceful and beautiful gallery.", created_at: new Date(now - 285 * 60000).toISOString() },
+    { id: "m12", conversation_id: "c3", sender_id: "demo-sophie", text_content: "They have a beautiful cafe section and some amazing modern Indian collections.", created_at: new Date(now - 284 * 60000).toISOString() },
+    { id: "m13", conversation_id: "c3", sender_id: "demo-sophie", text_content: "It is quite relaxing, no long queues at all.", created_at: new Date(now - 283 * 60000).toISOString() },
+  ],
+  c4: [
+    { id: "m14", conversation_id: "c4", sender_id: "demo-james", text_content: "The Piano Man is an absolute classic. You'll love it.", created_at: new Date(now - 1440 * 60000).toISOString() },
+    { id: "m15", conversation_id: "c4", sender_id: "demo-user", text_content: "Any specific seats you'd recommend?", created_at: new Date(now - 1435 * 60000).toISOString() },
+    { id: "m16", conversation_id: "c4", sender_id: "demo-james", text_content: "Try to book a table on the balcony section", created_at: new Date(now - 1430 * 60000).toISOString() },
+  ],
+  c5: [
+    { id: "m17", conversation_id: "c5", sender_id: "demo-ravi", text_content: "Karim's is still the best for mutton korma!", created_at: new Date(now - 2880 * 60000).toISOString() },
+    { id: "m18", conversation_id: "c5", sender_id: "demo-user", text_content: "Better than the other places nearby?", created_at: new Date(now - 2875 * 60000).toISOString() },
+    { id: "m19", conversation_id: "c5", sender_id: "demo-ravi", text_content: "For foodies, yes. Unmatched Mughlai heritage.", created_at: new Date(now - 2870 * 60000).toISOString() },
+    { id: "m20", conversation_id: "c5", sender_id: "demo-ravi", text_content: "The seekh kebabs are legendary 🍢", created_at: new Date(now - 2868 * 60000).toISOString() },
+  ],
+};

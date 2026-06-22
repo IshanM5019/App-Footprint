@@ -1,0 +1,271 @@
+@import "tailwindcss";
+
+/* Google Fonts loaded via index.html <link> to avoid PostCSS @import ordering issues */
+
+/* ── Tailwind v4 Theme ───────────────────────────────────── */
+@theme {
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+
+  --color-surface-50: #f8fafc;
+  --color-surface-100: #f1f5f9;
+  --color-surface-200: #e2e8f0;
+  --color-surface-300: #cbd5e1;
+  --color-surface-400: #94a3b8;
+  --color-surface-500: #64748b;
+  --color-surface-600: #475569;
+  --color-surface-700: #334155;
+  --color-surface-800: #1e293b;
+  --color-surface-900: #0f172a;
+  --color-surface-950: #020617;
+
+  --color-brand-400: #38bdf8;
+  --color-brand-500: #0ea5e9;
+  --color-brand-600: #0284c7;
+  --color-brand-700: #0369a1;
+
+  --color-accent-400: #34d399;
+  --color-accent-500: #10b981;
+  --color-accent-600: #059669;
+
+  --color-danger-400: #fb7185;
+  --color-danger-500: #f43f5e;
+
+  --radius-xl: 16px;
+  --radius-2xl: 20px;
+  --radius-3xl: 24px;
+}
+
+/* ── Light Theme (default) ───────────────────────────────── */
+:root {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8fafc;
+  --bg-tertiary: #f1f5f9;
+  --bg-elevated: #ffffff;
+  --bg-glass: rgba(255, 255, 255, 0.72);
+  --bg-glass-heavy: rgba(255, 255, 255, 0.88);
+  --bg-overlay: rgba(0, 0, 0, 0.4);
+
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-tertiary: #94a3b8;
+  --text-inverse: #ffffff;
+
+  --border-primary: #e2e8f0;
+  --border-secondary: #f1f5f9;
+  --border-accent: rgba(14, 165, 233, 0.3);
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.12);
+  --shadow-xl: 0 20px 60px rgba(0, 0, 0, 0.15);
+  --shadow-glow: 0 0 30px rgba(14, 165, 233, 0.15);
+
+  --map-filter: none;
+}
+
+/* ── Dark Theme ──────────────────────────────────────────── */
+[data-theme="dark"] {
+  --bg-primary: #0a0b10;
+  --bg-secondary: #0f1018;
+  --bg-tertiary: #151722;
+  --bg-elevated: #1a1c2a;
+  --bg-glass: rgba(15, 16, 24, 0.78);
+  --bg-glass-heavy: rgba(15, 16, 24, 0.92);
+  --bg-overlay: rgba(0, 0, 0, 0.6);
+
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-tertiary: #475569;
+  --text-inverse: #0f172a;
+
+  --border-primary: #1e2235;
+  --border-secondary: #151722;
+  --border-accent: rgba(56, 189, 248, 0.25);
+
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 12px 40px rgba(0, 0, 0, 0.5);
+  --shadow-xl: 0 20px 60px rgba(0, 0, 0, 0.6);
+  --shadow-glow: 0 0 40px rgba(14, 165, 233, 0.2);
+
+  --map-filter: brightness(0.85) contrast(1.1);
+}
+
+/* ── Base ─────────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  overflow: hidden;
+  height: 100dvh;
+}
+
+#root {
+  height: 100dvh;
+  overflow: hidden;
+}
+
+/* ── Scrollbar ────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-primary);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-tertiary);
+}
+
+/* ── Leaflet Overrides ────────────────────────────────────── */
+.leaflet-container {
+  background: var(--bg-secondary) !important;
+  font-family: var(--font-sans) !important;
+}
+
+.leaflet-tile-pane {
+  filter: var(--map-filter);
+}
+
+.leaflet-control-zoom {
+  border: none !important;
+  box-shadow: var(--shadow-md) !important;
+}
+
+.leaflet-control-zoom a {
+  background: var(--bg-glass-heavy) !important;
+  backdrop-filter: blur(12px) !important;
+  color: var(--text-primary) !important;
+  border: 1px solid var(--border-primary) !important;
+  width: 36px !important;
+  height: 36px !important;
+  line-height: 36px !important;
+  font-size: 16px !important;
+}
+
+.leaflet-control-zoom a:hover {
+  background: var(--bg-elevated) !important;
+}
+
+.leaflet-control-attribution {
+  display: none !important;
+}
+
+/* ── Custom Marker ────────────────────────────────────────── */
+.footprint-marker {
+  width: 36px;
+  height: 36px;
+  border-radius: 50% 50% 50% 4px;
+  transform: rotate(-45deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 3px 12px rgba(0,0,0,0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+  border: 2.5px solid white;
+}
+
+.footprint-marker:hover {
+  transform: rotate(-45deg) scale(1.15);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+}
+
+.footprint-marker-inner {
+  transform: rotate(45deg);
+  font-size: 14px;
+  line-height: 1;
+}
+
+/* ── Glass Utility ────────────────────────────────────────── */
+.glass {
+  background: var(--bg-glass);
+  backdrop-filter: blur(16px) saturate(1.8);
+  -webkit-backdrop-filter: blur(16px) saturate(1.8);
+  border: 1px solid var(--border-primary);
+}
+
+.glass-heavy {
+  background: var(--bg-glass-heavy);
+  backdrop-filter: blur(24px) saturate(1.8);
+  -webkit-backdrop-filter: blur(24px) saturate(1.8);
+  border: 1px solid var(--border-primary);
+}
+
+/* ── Gradient text ────────────────────────────────────────── */
+.gradient-text {
+  background: linear-gradient(135deg, #38bdf8, #0ea5e9, #2563eb);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Current Location Marker ──────────────────────────────── */
+.current-location-marker {
+  width: 18px;
+  height: 18px;
+  background: #0ea5e9;
+  border-radius: 50%;
+  border: 3px solid white;
+  box-shadow: 0 0 0 0 rgba(14, 165, 233, 0.4), 0 2px 8px rgba(0,0,0,0.3);
+  animation: current-loc-pulse 2s ease-out infinite;
+}
+
+@keyframes current-loc-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(14, 165, 233, 0.5), 0 2px 8px rgba(0,0,0,0.3); }
+  70% { box-shadow: 0 0 0 18px rgba(14, 165, 233, 0), 0 2px 8px rgba(0,0,0,0.3); }
+  100% { box-shadow: 0 0 0 0 rgba(14, 165, 233, 0), 0 2px 8px rgba(0,0,0,0.3); }
+}
+
+/* ── Pulse animation for online status ────────────────────── */
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.6; transform: scale(1.4); }
+}
+.pulse-dot {
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+/* ── POI Marker ───────────────────────────────────────────── */
+.poi-marker {
+  width: 28px;
+  height: 28px;
+  border-radius: 50% 50% 50% 4px;
+  transform: rotate(-45deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  background: var(--bg-glass-heavy);
+  backdrop-filter: blur(4px);
+  border: 2px solid;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.poi-marker:hover {
+  transform: rotate(-45deg) scale(1.15);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+}
+
+.poi-marker-emoji {
+  transform: rotate(45deg);
+  font-size: 11px;
+  line-height: 1;
+}
